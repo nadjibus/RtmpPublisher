@@ -97,6 +97,10 @@ public class RtmpPublisher implements Publisher, SurfaceTexture.OnFrameAvailable
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume(LifecycleOwner owner) {
+
+        if (camera == null)
+            return;
+
         Camera.Parameters params = camera.open();
         final Camera.Size size = params.getPreviewSize();
         glView.onResume();
